@@ -5,6 +5,18 @@ class PhotoServices {
   final Dio dio;
 
   PhotoServices(this.dio);
+  
+  get _photoServices => PhotoServices(dio);
+
+Future<List<PhotoModel>> fetchPhotos(int albumId) async {
+  try {
+    return await _photoServices.getPhotosByAlbumId(albumId);
+  } catch (e) {
+    throw Exception('Failed to load photos: $e');
+  }
+}
+// Add your imports and class definition here
+
 
   Future<List<PhotoModel>> getPhotos() async {
     // Replace with actual API endpoint
@@ -33,6 +45,7 @@ abstract class IPhotoRepository {
   Future<List<PhotoModel>> getPhotosByAlbumId(int albumId);
 }
 
+
 class PhotoRepository implements IPhotoRepository {
   final PhotoServices _photoServices;
 
@@ -51,7 +64,7 @@ class PhotoRepository implements IPhotoRepository {
   @override
   Future<List<PhotoModel>> getPhotosByAlbumId(int albumId) async {
     try {
-     return await _photoServices.getPhotosByAlbumId(albumId);
+      return await _photoServices.getPhotosByAlbumId(albumId);
     } catch (e) {
       throw Exception('Failed to load photos: $e');
     }

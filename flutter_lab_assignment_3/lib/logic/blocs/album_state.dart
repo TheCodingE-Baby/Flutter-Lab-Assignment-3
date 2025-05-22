@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import '../../../data/models/album_model.dart';
 import '../../../data/models/photo_model.dart';
 
-part of "album_bloc.dart";
 
 abstract class AlbumState extends Equatable {
   const AlbumState();

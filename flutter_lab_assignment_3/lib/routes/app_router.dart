@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart' show GoRoute, GoRouter;
 import '../presentation/theme/screens/album_list_screen.dart';
 import '../presentation/theme/screens/album_details_screen.dart';

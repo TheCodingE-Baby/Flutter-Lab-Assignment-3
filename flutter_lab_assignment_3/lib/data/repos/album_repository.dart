@@ -23,10 +23,3 @@ class AlbumRepository implements IAlbumRepository {
     }
   }
 }
-
-// Example usage
-Future<void> main() async {
-  final dio = Dio();
-  final albumRepository = AlbumRepository(dio: dio);
-  final albums = await albumRepository.fetchAlbums();
-}

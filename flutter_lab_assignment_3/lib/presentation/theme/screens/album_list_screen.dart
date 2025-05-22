@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../logic/blocs/album_bloc.dart' show AlbumBloc, AlbumError, AlbumLoaded, AlbumLoading, AlbumState, LoadAlbums;
+import '../../../logic/blocs/album_bloc.dart';
+import '../../../logic/blocs/album_state.dart';
+import '../../../logic/blocs/album_event.dart';
 
 class AlbumListScreen extends StatelessWidget {
   const AlbumListScreen({super.key});

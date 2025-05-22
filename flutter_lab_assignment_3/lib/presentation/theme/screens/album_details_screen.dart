@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' show AppBar, BuildContext, Center, CircularProgressIndicator, GridView, Scaffold, SliverGridDelegateWithFixedCrossAxisCount, StatelessWidget, Text, Widget;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_lab_assignment_3/logic/blocs/album_state.dart';
 import '../../../logic/blocs/album_bloc.dart';
 import "../widgets/photo_grid_item.dart";
 

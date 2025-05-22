@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Brightness, BuildContext, ColorScheme, Colors, MaterialApp, StatelessWidget, ThemeData, Widget, runApp;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 import 'routes/app_router.dart';
 import 'data/repos/album_repository.dart';
 import 'data/repos/photo_repository.dart';
-import '../presentation/theme/theme.dart';
 import '../logic/blocs/album_bloc.dart';
+import '../logic/blocs/photo_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => AlbumBloc(albumRepository: albumRepository)..add(LoadAlbums()),
+          create: (_) => AlbumBloc(albumRepository: albumRepository),
         ),
         BlocProvider(
-          create: (_) => AlbumDetailBloc(photoRepository: photoRepository),
+          create: (_) => PhotoBloc(photoRepository: photoRepository),
         ),
       ],
       child: MaterialApp.router(

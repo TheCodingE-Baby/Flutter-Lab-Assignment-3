@@ -1,8 +1,8 @@
-import 'package:bloc/bloc.dart';
+import 'package:bloc/bloc.dart' show Bloc;
 import '../../data/repos/album_repository.dart';
+import '../blocs/album_event.dart';
+import '../blocs/album_state.dart';
 
-part 'album_event.dart';
-part 'album_state.dart';
 
 class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
   final IAlbumRepository albumRepository;

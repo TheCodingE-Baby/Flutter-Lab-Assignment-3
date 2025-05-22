@@ -6,13 +6,15 @@ part 'album_model.g.dart';
 
 class AlbumModel {
   final int id;
+  final int userId;
   final String title;
-  final String coverUrl; // Add this field
+  final String coverUrl;
 
   AlbumModel({
     required this.id,
     required this.title,
-    required this.coverUrl, // Add this parameter
+    required this.userId,
+    required this.coverUrl,
   });
   
   factory AlbumModel.fromJson(Map<String, dynamic> json) => _$AlbumModelFromJson(json);
