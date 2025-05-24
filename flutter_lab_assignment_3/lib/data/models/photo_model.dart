@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'photo_model.g.dart';
 
 @JsonSerializable()
 class PhotoModel {
@@ -18,6 +17,13 @@ class PhotoModel {
     required this.thumbnailUrl,
   });
 
-  factory PhotoModel.fromJson(Map<String, dynamic> json) => _$PhotoModelFromJson(json);
-  Map<String, dynamic> toJson() => _$PhotoModelToJson(this);
+  factory PhotoModel.fromJson(Map<String, dynamic> json){
+    return PhotoModel(
+      albumId: json['albumId'] as int,
+      id: json['id'] as int,
+      title: json['title'] as String,
+      url: json['url'] as String,
+      thumbnailUrl: json['thumbnailUrl'] as String,
+    );
+  }
 }

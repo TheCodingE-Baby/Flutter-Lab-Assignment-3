@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'album_model.g.dart';
-
 @JsonSerializable()
 
 class AlbumModel {
@@ -17,6 +15,12 @@ class AlbumModel {
     required this.coverUrl,
   });
   
-  factory AlbumModel.fromJson(Map<String, dynamic> json) => _$AlbumModelFromJson(json);
-  Map<String, dynamic> toJson() => _$AlbumModelToJson(this);
+  factory AlbumModel.fromJson(Map<String, dynamic> json){
+    return AlbumModel(
+      id: json['id'] as int,
+      userId: json['userId'] as int,
+      title: json['title'] as String,
+      coverUrl: json['coverUrl'] as String,
+    );
+  }
 }
