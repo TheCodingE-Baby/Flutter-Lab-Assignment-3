@@ -19,11 +19,11 @@ class PhotoModel {
 
   factory PhotoModel.fromJson(Map<String, dynamic> json){
     return PhotoModel(
-      albumId: json['albumId'] as int,
-      id: json['id'] as int,
-      title: json['title'] as String,
-      url: json['url'] as String,
-      thumbnailUrl: json['thumbnailUrl'] as String,
+      albumId: json['albumId'],
+      id: json['id'],
+      title: json['title'],
+      url: json['url'],
+      thumbnailUrl: json['thumbnailUrl'],
     );
   }
 }

@@ -17,10 +17,10 @@ class AlbumModel {
   
   factory AlbumModel.fromJson(Map<String, dynamic> json){
     return AlbumModel(
-      id: json['id'] as int,
-      userId: json['userId'] as int,
-      title: json['title'] as String,
-      coverUrl: json['coverUrl'] as String,
+      id: json['id'],
+      userId: json['userId'],
+      title: json['title'],
+      coverUrl: json['coverUrl'],
     );
   }
 }
