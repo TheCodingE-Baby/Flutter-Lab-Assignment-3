@@ -1,5 +1,4 @@
-import 'package:dio/dio.dart';
-import '../services/album_services.dart';
+import 'package:flutter_lab_assignment_3/data/services/api_services.dart';
 import '../models/album_model.dart';
 
 abstract class IAlbumRepository {
@@ -7,17 +6,15 @@ abstract class IAlbumRepository {
 }
 
 class AlbumRepository implements IAlbumRepository {
-  final AlbumServices albumServices;
+  final ApiServices apiServices;
 
-  AlbumRepository({required Dio dio})
-      : albumServices = AlbumServices(dio);
-
-  @override
+  AlbumRepository({required this.apiServices});
+  // Using Dio for network requests
+  // final Dio dio; 
   @override
   Future<List<AlbumModel>> fetchAlbums() async {
     try {
-      final albums = await albumServices.getAlbums();
-      return albums;
+      return await apiServices.getAlbums();
     } catch (e) {
       throw Exception('Failed to load albums: $e');
     }

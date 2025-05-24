@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart' show Equatable;
-import '../../data/models/album_model.dart';
-
+part of '../blocs/album_bloc.dart';
 
 abstract class AlbumEvent extends Equatable {
   const AlbumEvent();

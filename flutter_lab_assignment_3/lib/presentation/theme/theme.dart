@@ -24,10 +24,10 @@ MaterialApp materialApp() {
         ),
       ),
     ),
-    home: const MyApp(),
+    home: MyApp(),
     debugShowCheckedModeBanner: false,
     routes: {
-      '/': (context) => const MyApp(),
+      '/': (context) => MyApp(),
     },
   );
 }

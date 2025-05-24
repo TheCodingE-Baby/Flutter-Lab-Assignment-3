@@ -1,55 +1,34 @@
-import 'package:equatable/equatable.dart';
-import '../../../data/models/album_model.dart';
-import '../../../data/models/photo_model.dart';
+part of 'album_bloc.dart';
 
-
-abstract class AlbumState extends Equatable {
-  const AlbumState();
-
-  @override
-  List<Object> get props => [];
+enum AlbumStatus {
+  initial,
+  loading,
+  loaded,
+  error,
 }
-
-class AlbumInitial extends AlbumState {
-  const AlbumInitial();
-
-  @override
-  List<Object> get props => [];
-}
-class AlbumLoading extends AlbumState {}
-class AlbumLoaded extends AlbumState {
+class AlbumState extends Equatable {
+  final AlbumStatus status;
   final List<AlbumModel> albums;
+  final String errorMessage;
 
-  const AlbumLoaded(this.albums);
-
-  @override
-  List<Object> get props => [albums];
-}
-class AlbumError extends AlbumState {
-  final String message;
-
-  const AlbumError({required this.message});
+  const AlbumState({
+    this.status = AlbumStatus.initial,
+    this.albums = const [],
+    this.errorMessage = '',
+  });
 
   @override
-  List<Object> get props => [message];
-}
+  List<Object?> get props => [status, albums, errorMessage];
 
-class AlbumDetailState extends AlbumState{}
-class AlbumDetailLoading extends AlbumDetailState{}
-class AlbumDetailLoaded extends AlbumDetailState{
-  final List<PhotoModel> photos;
-
- AlbumDetailLoaded(this.photos);
-
-  @override
-  List<Object> get props => [photos];
-}
-
-class AlbumDetailError extends AlbumDetailState{
-  final String message;
-
- AlbumDetailError({required this.message});
-
-  @override
-  List<Object> get props => [message];
+  AlbumState copyWith({
+    AlbumStatus? status,
+    List<AlbumModel>? albums,
+    String? errorMessage,
+  }) {
+    return AlbumState(
+      status: status ?? this.status,
+      albums: albums ?? this.albums,
+      errorMessage: errorMessage ?? this.errorMessage,
+    );
+  }
 }
